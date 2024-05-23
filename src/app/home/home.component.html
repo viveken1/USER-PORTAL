@@ -1,0 +1,37 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div *ngIf="sidebarStatus" style="height: 95vh; width: fit-content;" class="col-lg-2 bg-warning d-flex flex-column p-3">
+        <a style="text-decoration: none;color: rgb(240, 7, 7);" class="mb-3 fw-bolder" routerLink="/dashboard">Home</a>
+        <a style="text-decoration: none;color: rgb(240, 12, 12);" class="mb-3 fw-bolder" routerLink="/users">Users</a>
+        <button (click)="logout()" class="btn btn-link mt-auto text-danger bg-black border border-white fw-bolder">LOGOUT</button>
+
+        </div>
+
+
+        <div class="col">
+            <div class="row mt-2">
+                <div class="col-lg-8">
+                    <div style="height: 130px; background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20221011/pngtree-blue-gold-background-banner-idea-modern-simple-free-download-image_1467602.jpg);" class="banner rounded p-3 d-flex align-items-center shadow">
+                        <h1 class="fw-bolder"><i (click)="menuClicked()" class="fa-solid fa-bars"></i> <span class="ms-4 text-danger">WELCOME <span class="text-success">{{adminName}}</span></span></h1>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <app-calendar></app-calendar>
+                        </div>
+                        <div class="col-lg-6">
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="height: 400px;" class="rounded p-2 border shadow">
+                            <app-edit-admin (onAdminChange)="adminChange($event)"></app-edit-admin>
+                    </div>
+                    <div style="height: 140px; background-image: url(https://bbdniit.ac.in/wp-content/uploads/2020/09/banner-background-without-image-min.jpg); background-size: cover;" class=" banner rounded mt-2 d-flex align-items-center justify-content-center shadow ">
+            <h1 class="text-danger "><i class="fa-solid fa-user-secret text-dark"></i> All Users : {{userCount}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+</div>
